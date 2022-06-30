@@ -1,7 +1,7 @@
 import { Movie } from '../typings'
 import Image from 'next/image'
 interface Props {
-    movie: Movie
+    movie: Movie 
 }
 
 function Thumbnail({ movie }: Props) {
