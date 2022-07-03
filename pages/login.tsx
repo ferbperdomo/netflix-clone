@@ -64,7 +64,7 @@ function Login() {
                     />
                     {errors.password &&
                         <p className="p-1 text-[13px] font-light  text-orange-500">
-                            La contraseña debe tener entre 4 y 60 caracteres.
+                            La contraseña debe tener entre 4 y 10 caracteres.
                         </p>
                     }
                 </label>
@@ -77,7 +77,7 @@ function Login() {
                 Iniciar sesión
             </button>
             <div className="text-[gray]">
-                ¿Todavía sin cuenta? {'  '}
+                ¿Todavía sin cuenta? Rellena el formulario {'  '}
 
                 <button
                     className="text-white hover:underline"
