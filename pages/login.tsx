@@ -77,7 +77,8 @@ function Login() {
                 Iniciar sesión
             </button>
             <div className="text-[gray]">
-                ¿Todavía sin Netflix? {' '}
+                ¿Todavía sin cuenta? {'  '}
+
                 <button
                     className="text-white hover:underline"
                     type="submit"
@@ -86,6 +87,9 @@ function Login() {
                 >
                     Suscríbete ya.
                 </button>
+                <p className="p-1 text-[13px] font-light">
+                    O usa: clonetflix@gmail.com - clonetflix.
+                </p>
             </div>
         </form>
 
