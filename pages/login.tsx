@@ -77,7 +77,7 @@ function Login() {
                 Iniciar sesión
             </button>
             <div className="text-[gray]">
-                ¿Todavía sin cuenta? Rellena el formulario {'  '}
+                ¿Todavía sin cuenta? Rellena el formulario y {'  '}
 
                 <button
                     className="text-white hover:underline"
@@ -85,7 +85,7 @@ function Login() {
                     onClick={() => setLogin(false)}
 
                 >
-                    Suscríbete ya.
+                    haz click aquí.
                 </button>
                 <p className="p-1 text-[13px] font-light">
                     O usa: clonetflix@gmail.com - clonetflix.
