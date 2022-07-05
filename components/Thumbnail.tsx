@@ -22,8 +22,7 @@ function Thumbnail({ movie }: Props) {
                 src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path || movie.poster_path
                     }`}
                 className="rounded-sm object-cover md:rounded"
-                layout="fill"
-            />
+                layout="fill" />
         </div>
     )
 }

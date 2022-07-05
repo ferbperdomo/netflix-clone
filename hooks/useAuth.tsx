@@ -1,4 +1,3 @@
-import { async } from '@firebase/util'
 import {
     createUserWithEmailAndPassword,
     onAuthStateChanged,
@@ -6,7 +5,6 @@ import {
     signOut,
     User,
 } from 'firebase/auth'
-
 import { useRouter } from 'next/router'
 import { createContext, useContext, useEffect, useMemo, useState } from 'react'
 import { auth } from '../firebase'
@@ -32,6 +30,7 @@ const AuthContext = createContext<IAuth>({
 interface AuthProviderProps {
     children: React.ReactNode
 }
+
 export const AuthProvider = ({ children }: AuthProviderProps) => {
     const router = useRouter()
     const [user, setUser] = useState<User | null>(null)
@@ -52,7 +51,6 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
                     setLoading(true)
                     router.push('/login')
                 }
-
                 setInitialLoading(false)
             }),
         [auth]
@@ -60,7 +58,6 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
     const signUp = async (email: string, password: string) => {
         setLoading(true)
-
         await createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 setUser(userCredential.user)
@@ -85,7 +82,6 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
     const logout = async () => {
         setLoading(true)
-
         signOut(auth)
             .then(() => {
                 setUser(null)

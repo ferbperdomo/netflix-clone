@@ -39,14 +39,13 @@ function Modal() {
                 `https://api.themoviedb.org/3/${movie?.media_type === 'tv' ? 'tv' : 'movie'
                 }/${movie?.id}?api_key=${process.env.NEXT_PUBLIC_API_KEY
                 }&language=es&append_to_response=videos`
-            ).then((response) => response.json())
+            )
+                .then((response) => response.json())
                 .catch((err) => console.log(err.message))
-
             if (data?.videos) {
                 const index = data.videos.results.findIndex((element: Element) => element.type === "Trailer")
                 setTrailer(data.videos?.results[index]?.key)
             }
-
             if (data?.genres) {
                 setGenres(data.genres)
             }
@@ -58,8 +57,6 @@ function Modal() {
     const handleList = async () => {
         if (addedToList) {
             await deleteDoc(doc(db, "customers", user!.uid, "myList", movie?.id.toString()!))
-
-
             toast(`${movie?.title || movie?.original_name} se ha quitado de Mi Lista `, {
                 duration: 8000,
                 style: toastStyle,
@@ -71,7 +68,6 @@ function Modal() {
                     ...movie,
                 }
             )
-
             toast(
                 `${movie?.title || movie?.original_name} ha sido añadida a Mi Lista.`,
                 {
@@ -81,7 +77,6 @@ function Modal() {
             )
         }
     }
-
 
     const handleClose = () => {
         setShowModal(false)
@@ -120,8 +115,7 @@ function Modal() {
                         height="100%"
                         style={{ position: 'absolute', top: '0', left: '0' }}
                         playing
-                        muted={muted}
-                    />
+                        muted={muted} />
                     <div className='absolute bottom-10 flex w-full items-center justify-between px-10'>
                         <div className='flex space-x-2'>
                             <button className='flex items-center gap-x-2 rounded bg-white px-8 text-xl font-bold text-black transition hover:bg-[#e6e6e6]'>
@@ -141,7 +135,6 @@ function Modal() {
                             <button className='modalButton'>
                                 <ThumbUpIcon className='h-7 w-7' />
                             </button>
-
                         </div>
                         <button className='modalButton' onClick={() => setMuted(!muted)}>
                             {muted ? <VolumeOffIcon className='h-6 w-6' /> : <VolumeUpIcon className='h-6 w-6' />}
@@ -153,7 +146,7 @@ function Modal() {
                     <div className="space-y-6 text-lg">
                         <div className="flex items-center space-x-2 text-sm">
                             <p className="font-semibold text-green-400">
-                                {movie!.vote_average * 10}% Match
+                                {(movie!.vote_average * 10).toFixed()} % de coincidencia
                             </p>
                             <p className="font-light">
                                 {movie?.release_date || movie?.first_air_date}

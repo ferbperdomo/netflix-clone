@@ -28,8 +28,7 @@ function Banner({ netflixOriginals }: Props) {
                 <Image
                     layout="fill"
                     src={`${baseUrl}${movie?.backdrop_path || movie?.poster_path}`}
-                    objectFit="cover"
-                />
+                    objectFit="cover" />
             </div>
 
             <h1 className="text-2xl font-bold md:text-4xl lg:text-7xl">
@@ -39,7 +38,11 @@ function Banner({ netflixOriginals }: Props) {
                 {movie?.overview}
             </p>
             <div className="flex space-x-3">
-                <button className="bannerButton bg-white text-black">
+                <button className="bannerButton bg-white text-black"
+                    onClick={() => {
+                        setCurrentMovie(movie)
+                        setShowModal(true)
+                    }}>
                     <FaPlay className="h-4 w-4 text-black md:h-7 md:w-7" />
                     Reproducir
                 </button>
@@ -49,8 +52,7 @@ function Banner({ netflixOriginals }: Props) {
                     onClick={() => {
                         setCurrentMovie(movie)
                         setShowModal(true)
-                    }}
-                >
+                    }}>
                     <InformationCircleIcon className="h-5 w-5 md:h-8 md:w-8" /> Más información
                 </button>
             </div>

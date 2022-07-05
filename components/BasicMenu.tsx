@@ -23,8 +23,7 @@ export default function BasicMenu() {
                 aria-haspopup="true"
                 aria-expanded={open ? 'true' : undefined}
                 onClick={handleClick}
-                className="!capitalize !text-white"
-            >
+                className="!capitalize !text-white">
                 Menú
             </Button>
             <Menu
@@ -35,8 +34,7 @@ export default function BasicMenu() {
                 className="menu"
                 MenuListProps={{
                     'aria-labelledby': 'basic-button',
-                }}
-            >
+                }}>
                 <MenuItem onClick={handleClose}>Inicio</MenuItem>
                 <MenuItem onClick={handleClose}>Series TV</MenuItem>
                 <MenuItem onClick={handleClose}>Películas</MenuItem>

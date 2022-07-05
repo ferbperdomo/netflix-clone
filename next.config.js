@@ -7,4 +7,9 @@ module.exports = withTM({
   images: {
     domains: ['rb.gy', 'image.tmdb.org'],
   },
+  i18n: {
+    locales: ["es"],
+    defaultLocale: "es",
+  },
+  productionBrowserSourceMaps: true,
 })

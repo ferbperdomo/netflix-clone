@@ -17,7 +17,6 @@ function Account({ products }: Props) {
     const subscription = useSubscription(user)
     const subscriptionDate = moment(subscription?.created).format('MMMM YYYY')
 
-
     return (
         <div>
             <Head>
@@ -31,13 +30,16 @@ function Account({ products }: Props) {
                         src="https://rb.gy/ulxxee"
                         width={120}
                         height={120}
+                        alt="Netflix logo"
                         className="cursor-pointer object-contain"
                     />
                 </Link>
                 <Link href="/account">
                     <img
                         src="https://rb.gy/g1pwyx"
-                        alt=""
+                        alt="Smiley face icon"
+                        width={30}
+                        height={30}
                         className="cursor-pointer rounded"
                     />
                 </Link>
@@ -59,16 +61,13 @@ function Account({ products }: Props) {
                     <h4 className="text-lg text-[gray]">Detalles del plan</h4>
                     {/* Find the current plan */}
                     <div className="col-span-2 font-medium">
-                        {
-                            products.filter(
-                                (product) => product.id === subscription?.product
-                            )[0]?.name
-                        }
+                        {products.filter(
+                            (product) => product.id === subscription?.product
+                        )[0]?.name}
                     </div>
                     <p
                         className="cursor-pointer text-blue-500 hover:underline md:text-right"
-                        onClick={goToBillingPortal}
-                    >
+                        onClick={goToBillingPortal}>
                         Cambiar de plan
                     </p>
                 </div>
@@ -76,13 +75,11 @@ function Account({ products }: Props) {
                     <h4 className="text-lg text-[gray]">Configuración</h4>
                     <p
                         className="col-span-3 cursor-pointer text-blue-500 hover:underline"
-                        onClick={logout}
-                    >
+                        onClick={logout}>
                         Cerrar sesión en todos los dispositivos
                     </p>
                 </div>
             </main>
-
         </div>
     )
 }

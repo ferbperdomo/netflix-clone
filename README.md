@@ -1,23 +1,15 @@
-# Next.js + Tailwind CSS Example
+# Clonetflix
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.0)](https://tailwindcss.com/blog/tailwindcss-v3) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+[Clonetflix](https://clonetflix.vercel.app/) is a clone of the actual Netflix webpage built in a dark mode which allows users to register, select a plan for watching movies, paying the subscription through Stripe (for testing), add and remove movies from their list and play the trailers for the selected movies besides having extra information about them. Some of the functionalities are still on the development process for a more advanced version.
 
-## Deploy your own
+## Tools
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
+Clonetflix was build using TypeScript, Nextjs and Tailwind. It collects real time information from The Movie Database TMDB api. It is connected to Firebase for authentication of users and to Stripe to allow the payment of each plan according to the user election.
 
 ## How to use
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
+You can create an account by filling the form in the login page and clicking in the subscription link or use the default account with the email and password given below. When a new user signs up, it will ask for the desired plan and will move to the Stripe platform to process the payment. As it is in test mode, default data is given below the plans to make this process easier. 
+Once the payment is processed, it will come back to the account page where you will find the information about the plan, the option to change the current plan will take the user to Stripe to modify it, and finally the logout. Some of the links are not connected because it is planned for a second version of the app.
+By clicking in the logo on the top-left corner the user will be taken to the index page where will find different movie categories and can play the trailer of each one. Also, at the beggining there is no "My List" but once the user add some movie, it will be displayed as first row in the page.
 
-```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
-# or
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
-# or
-pnpm create next-app --example with-tailwindcss with-tailwindcss-app
-```
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).

@@ -14,16 +14,13 @@ function Header() {
                 setIsScrolled(false)
             }
         }
-
         window.addEventListener('scroll', handleScroll)
-
         return () => {
             window.removeEventListener('scroll', handleScroll)
         }
     })
 
     return (
-
         <header className={`${isScrolled && 'bg-[#141414]'}`}>
             <div className="flex items-center space-x-2 md:space-x-10">
                 <Link href={"/"}>
@@ -32,8 +29,8 @@ function Header() {
                         src="https://rb.gy/ulxxee"
                         width={100}
                         height={100}
-                        className="cursor-pointer object-contain"
-                    />
+                        alt="Netflix logo"
+                        className="cursor-pointer object-contain" />
                 </Link>
                 <BasicMenu />
                 <ul className="hidden space-x-4 md:flex">
@@ -51,12 +48,12 @@ function Header() {
                 <Link href="/account">
                     <img
                         src="https://rb.gy/g1pwyx"
-                        alt=""
-                        className="cursor-pointer rounded"
-                    />
+                        alt="Smiley face icon"
+                        width={30}
+                        height={30}
+                        className="cursor-pointer rounded" />
                 </Link>
             </div>
-
         </header>
     )
 }

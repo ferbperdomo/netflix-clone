@@ -8,10 +8,8 @@ import Loader from './Loader'
 function Membership() {
     const { user } = useAuth()
     const [isBillingLoading, setBillingLoading] = useState(false)
-
     const subscription = useSubscription(user)
     const membershipEndDate = moment(subscription?.current_period_end).format('LL')
-
 
     const manageSubscription = () => {
         if (subscription) {
@@ -27,8 +25,7 @@ function Membership() {
                 <button
                     disabled={isBillingLoading || !subscription}
                     className="h-10 w-3/5 whitespace-nowrap bg-gray-300 py-2 text-sm font-medium text-black shadow-md hover:bg-gray-200 md:w-4/5"
-                    onClick={manageSubscription}
-                >
+                    onClick={manageSubscription}>
                     {isBillingLoading ? (
                         <Loader color="dark:fill-[#e50914]" />
                     ) : (
@@ -36,7 +33,6 @@ function Membership() {
                     )}
                 </button>
             </div>
-
             <div className="col-span-3">
                 <div className="flex flex-col justify-between border-b border-white/10 py-4 md:flex-row">
                     <div>
@@ -48,7 +44,6 @@ function Membership() {
                         <p className="membershipLink">Cambiar contraseña</p>
                     </div>
                 </div>
-
                 <div className="flex flex-col justify-between pt-4 pb-4 md:flex-row md:pb-0">
                     <div>
                         <p>

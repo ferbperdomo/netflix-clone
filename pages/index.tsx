@@ -56,12 +56,12 @@ const Home = ({
 
   return (
     <div
-      className={`relative h-screen bg-gradient-to-b from-gray-900/10 to-[#010511] lg:h-[140vh] ${showModal && '!h-screen overflow-hidden'
-        }`}
-    >
+      className={`relative h-screen bg-gradient-to-b from-gray-900/10 to-[#010511] 
+      lg:h-[140vh] ${showModal && '!h-screen overflow-hidden'}`}>
       <Head>
         <title>Home - Netflix</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
 
       <Header />
@@ -71,9 +71,7 @@ const Home = ({
         <Banner netflixOriginals={netflixOriginals} />
 
         <section className="md:space-y-24">
-          {
-            list.length > 0 && <Row title='My list' movies={list} />
-          }
+          {list.length > 0 && <Row title='My list' movies={list} />}
           <Row title="Popular en Netflix" movies={trendingNow} />
           <Row title="Animación" movies={animationMovies} />
           <Row title="Fantasía" movies={fantasyMovies} />

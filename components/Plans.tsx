@@ -17,7 +17,6 @@ function Plans({ products }: Props) {
     const { logout, user } = useAuth()
     const [selectedPlan, setSelectedPlan] = useState<Product | null>(products[2])
     const [isBillingLoading, setBillingLoading] = useState(false)
-
     const subscribeToPlan = () => {
         if (!user) return
 
@@ -25,6 +24,7 @@ function Plans({ products }: Props) {
         setBillingLoading(true)
 
     }
+
     return (
         <div>
             <Head>
@@ -39,13 +39,11 @@ function Plans({ products }: Props) {
                         alt="Netflix"
                         width={150}
                         height={90}
-                        className="cursor-pointer object-contain"
-                    />
+                        className="cursor-pointer object-contain" />
                 </Link>
                 <button
                     className="text-lg font-medium hover:underline"
-                    onClick={logout}
-                >
+                    onClick={logout}>
                     Cerrar sesión
                 </button>
             </header>
@@ -67,14 +65,12 @@ function Plans({ products }: Props) {
                 </ul>
                 <div className="mt-4 flex flex-col space-y-4">
                     <div className="flex w-full items-center justify-center self-end md:w-3/5">
-
                         {products.map((product) => (
                             <div
                                 className={`planBox ${selectedPlan?.id === product.id ? 'opacity-100' : 'opacity-60'
                                     }`}
                                 key={product.id}
-                                onClick={() => setSelectedPlan(product)}
-                            >
+                                onClick={() => setSelectedPlan(product)}>
                                 {product.name}
                             </div>
                         ))}
@@ -85,20 +81,15 @@ function Plans({ products }: Props) {
                         disabled={!selectedPlan || isBillingLoading}
                         className={`mx-auto w-11/12 rounded bg-[#E50914] py-4 text-xl shadow hover:bg-[#f6121d] md:w-[420px] ${isBillingLoading && 'opacity-60'
                             }`}
-                        onClick={subscribeToPlan}
-                    >
+                        onClick={subscribeToPlan}>
                         {isBillingLoading ? (
                             <Loader color="dark:fill-gray-300" />
-                        ) : (
-                            'Continuar'
-                        )}
+                        ) : ('Continuar')}
                     </button>
                     <p className="flex items-center justify-center gap-x-2 text-[10px] text-[gray]">*En la pasarela de pago puedes usar la versión de prueba con número de tarjeta 4242 4242 4242 4242, una fecha futura válida, como 12/34 y cualquier CVC de tres dígitos.</p>
                 </div>
             </main>
-
         </div>
-
     )
 }
 export default Plans
