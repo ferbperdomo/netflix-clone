@@ -28,7 +28,8 @@ function Banner({ animationMovies }: Props) {
                 <Image
                     layout="fill"
                     src={`${baseUrl}${movie?.backdrop_path || movie?.poster_path}`}
-                    objectFit="cover" />
+                    objectFit="cover"
+                    objectPosition="center" />
             </div>
 
             <h1 className="text-2xl font-bold md:text-4xl lg:text-7xl">
