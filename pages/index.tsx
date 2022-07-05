@@ -68,7 +68,7 @@ const Home = ({
 
       <main className=' relative pl-4 pb-24 lg:space-y-20 lg:pl-16' >
 
-        <Banner netflixOriginals={netflixOriginals} />
+        <Banner animationMovies={animationMovies} />
 
         <section className="md:space-y-24">
           {list.length > 0 && <Row title='My list' movies={list} />}
