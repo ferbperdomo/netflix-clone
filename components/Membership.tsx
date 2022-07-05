@@ -1,3 +1,4 @@
+import moment from 'moment'
 import { useState } from 'react'
 import useAuth from '../hooks/useAuth'
 import useSubscription from '../hooks/useSubscription'
@@ -6,8 +7,11 @@ import Loader from './Loader'
 
 function Membership() {
     const { user } = useAuth()
-    const subscription = useSubscription(user)
     const [isBillingLoading, setBillingLoading] = useState(false)
+
+    const subscription = useSubscription(user)
+    const membershipEndDate = moment(subscription?.current_period_end).format('LL')
+
 
     const manageSubscription = () => {
         if (subscription) {
@@ -51,7 +55,7 @@ function Membership() {
                             {subscription?.cancel_at_period_end
                                 ? 'Tu plan se cancelará el '
                                 : 'Tu próxima facturación es el '}
-                            {subscription?.current_period_end}
+                            {membershipEndDate}
                         </p>
                     </div>
                     <div className="md:text-right">

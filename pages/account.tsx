@@ -1,4 +1,5 @@
 import { getProducts, Product } from "@stripe/firestore-stripe-payments"
+import moment from "moment"
 import { GetStaticProps } from "next"
 import Head from "next/head"
 import Link from "next/link"
@@ -14,6 +15,8 @@ interface Props {
 function Account({ products }: Props) {
     const { user, logout } = useAuth()
     const subscription = useSubscription(user)
+    const subscriptionDate = moment(subscription?.created).format('MMMM YYYY')
+
 
     return (
         <div>
@@ -45,7 +48,7 @@ function Account({ products }: Props) {
                     <div className="-ml-0.5 flex items-center gap-x-1.5">
                         <img src="https://rb.gy/4vfk4r" alt="" className="h-7 w-7" />
                         <p className="text-xs font-semibold text-[#555]">
-                            Suscriptor/a desde {subscription?.created}
+                            Suscriptor/a desde {subscriptionDate}
                         </p>
                     </div>
                 </div>
@@ -64,7 +67,7 @@ function Account({ products }: Props) {
                     </div>
                     <p
                         className="cursor-pointer text-blue-500 hover:underline md:text-right"
-                    onClick={goToBillingPortal}
+                        onClick={goToBillingPortal}
                     >
                         Cambiar de plan
                     </p>
