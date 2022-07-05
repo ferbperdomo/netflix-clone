@@ -17,7 +17,7 @@ function Modal() {
     const [movie, setMovie] = useRecoilState(movieState)
     const [trailer, setTrailer] = useState("")
     const [genres, setGenres] = useState<Genre[]>([])
-    const [muted, setMuted] = useState(true)
+    const [muted, setMuted] = useState(false)
     const [addedToList, setAddedToList] = useState(false)
     const { user } = useAuth()
     const [movies, setMovies] = useState<DocumentData[] | Movie[]>([])

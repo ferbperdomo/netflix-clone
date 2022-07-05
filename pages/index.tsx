@@ -23,6 +23,9 @@ interface Props {
   horrorMovies: Movie[]
   romanceMovies: Movie[]
   documentaries: Movie[]
+  animationMovies: Movie[]
+  fantasyMovies: Movie[]
+  upcomingMovies: Movie[]
   products: Product[]
 }
 
@@ -35,6 +38,9 @@ const Home = ({
   romanceMovies,
   topRated,
   trendingNow,
+  animationMovies,
+  fantasyMovies,
+  upcomingMovies,
   products
 }: Props) => {
 
@@ -60,7 +66,7 @@ const Home = ({
 
       <Header />
 
-      <main className=' relative pl-4 pb-24 lg:space-y-24 lg:pl-16' >
+      <main className=' relative pl-4 pb-24 lg:space-y-20 lg:pl-16' >
 
         <Banner netflixOriginals={netflixOriginals} />
 
@@ -69,10 +75,13 @@ const Home = ({
             list.length > 0 && <Row title='My list' movies={list} />
           }
           <Row title="Popular en Netflix" movies={trendingNow} />
+          <Row title="Animación" movies={animationMovies} />
+          <Row title="Fantasía" movies={fantasyMovies} />
+          <Row title="Futuros estrenos" movies={upcomingMovies} />
+          <Row title="Películas de miedo" movies={horrorMovies} />
           <Row title="Top" movies={topRated} />
           <Row title="Acción y aventuras" movies={actionMovies} />
           <Row title="Comedias" movies={comedyMovies} />
-          <Row title="Películas de miedo" movies={horrorMovies} />
           <Row title="Romances" movies={romanceMovies} />
           <Row title="Documentales" movies={documentaries} />
         </section>
@@ -102,6 +111,9 @@ export const getServerSideProps = async () => {
     horrorMovies,
     romanceMovies,
     documentaries,
+    animationMovies,
+    fantasyMovies,
+    upcomingMovies,
   ] = await Promise.all([
     fetch(requests.fetchNetflixOriginals).then((res) => res.json()),
     fetch(requests.fetchTrending).then((res) => res.json()),
@@ -111,17 +123,23 @@ export const getServerSideProps = async () => {
     fetch(requests.fetchHorrorMovies).then((res) => res.json()),
     fetch(requests.fetchRomanceMovies).then((res) => res.json()),
     fetch(requests.fetchDocumentaries).then((res) => res.json()),
+    fetch(requests.fetchAnimationMovies).then((res) => res.json()),
+    fetch(requests.fetchFantasyMovies).then((res) => res.json()),
+    fetch(requests.fetchUpcomingMovies).then((res) => res.json()),
   ])
   return {
     props: {
       netflixOriginals: netflixOriginals.results,
       trendingNow: trendingNow.results,
+      animationMovies: animationMovies.results,
       topRated: topRated.results,
       actionMovies: actionMovies.results,
       comedyMovies: comedyMovies.results,
       horrorMovies: horrorMovies.results,
       romanceMovies: romanceMovies.results,
+      fantasyMovies: fantasyMovies.results,
       documentaries: documentaries.results,
+      upcomingMovies: upcomingMovies.results,
       products,
     }
   }

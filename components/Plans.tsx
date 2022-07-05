@@ -49,7 +49,7 @@ function Plans({ products }: Props) {
                     Cerrar sesión
                 </button>
             </header>
-            
+
             <main className="mx-auto max-w-5xl px-5 pt-28 pb-12 transition-all md:px-10">
                 <h1 className="mb-3 text-3xl font-medium">
                     Selecciona el plan ideal para ti
@@ -93,6 +93,7 @@ function Plans({ products }: Props) {
                             'Continuar'
                         )}
                     </button>
+                    <p className="flex items-center justify-center gap-x-2 text-[10px] text-[gray]">*En la pasarela de pago puedes usar la versión de prueba con número de tarjeta 4242 4242 4242 4242, una fecha futura válida, como 12/34 y cualquier CVC de tres dígitos.</p>
                 </div>
             </main>
 

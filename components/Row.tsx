@@ -1,30 +1,27 @@
-import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid'
-import { Movie } from '../typings'
-import Thumbnail from '../components/Thumbnail'
-import { useRef, useState } from 'react'
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/outline'
 import { DocumentData } from 'firebase/firestore'
+import { useRef, useState } from 'react'
+import { Movie } from '../typings'
+import Thumbnail from './Thumbnail'
+
 interface Props {
     title: string
     movies: Movie[] | DocumentData[]
 }
+
 function Row({ title, movies }: Props) {
     const rowRef = useRef<HTMLDivElement>(null)
-
     const [isMoved, setIsMoved] = useState(false)
 
     const handleClick = (direction: string) => {
-
         setIsMoved(true)
-
         if (rowRef.current) {
-
             const { scrollLeft, clientWidth } = rowRef.current
 
             const scrollTo =
                 direction === 'left'
                     ? scrollLeft - clientWidth
                     : scrollLeft + clientWidth
-
             rowRef.current.scrollTo({ left: scrollTo, behavior: 'smooth' })
         }
     }
@@ -44,7 +41,7 @@ function Row({ title, movies }: Props) {
                     className="flex items-center space-x-0.5 overflow-x-scroll scrollbar-hide md:space-x-2.5 md:p-2"
                     ref={rowRef}
                 >
-                    {movies.map((movie) => (
+                    {movies?.map((movie) => (
                         <Thumbnail key={movie.id} movie={movie} />
                     ))}
                 </div>
@@ -56,4 +53,5 @@ function Row({ title, movies }: Props) {
         </div>
     )
 }
+
 export default Row

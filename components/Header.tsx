@@ -26,12 +26,15 @@ function Header() {
 
         <header className={`${isScrolled && 'bg-[#141414]'}`}>
             <div className="flex items-center space-x-2 md:space-x-10">
-                <img
-                    src="https://rb.gy/ulxxee"
-                    width={100}
-                    height={100}
-                    className="cursor-pointer object-contain"
-                />
+                <Link href={"/"}>
+
+                    <img
+                        src="https://rb.gy/ulxxee"
+                        width={100}
+                        height={100}
+                        className="cursor-pointer object-contain"
+                    />
+                </Link>
                 <BasicMenu />
                 <ul className="hidden space-x-4 md:flex">
                     <li className="headerLink">Inicio </li>
