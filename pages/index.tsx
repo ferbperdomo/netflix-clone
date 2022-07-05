@@ -71,7 +71,7 @@ const Home = ({
         <Banner animationMovies={animationMovies} />
 
         <section className="md:space-y-24">
-          {list.length > 0 && <Row title='My list' movies={list} />}
+          {list.length > 0 && <Row title='Mi lista' movies={list} />}
           <Row title="Popular en Netflix" movies={trendingNow} />
           <Row title="Animación" movies={animationMovies} />
           <Row title="Fantasía" movies={fantasyMovies} />
