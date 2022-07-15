@@ -73,7 +73,7 @@ function Login() {
                 Iniciar sesión
             </button>
             <div className="text-[gray]">
-                ¿Todavía sin cuenta? Rellena el formulario y {'  '}
+                ¿Quieres tu propia cuenta? Rellena el formulario y {'  '}
 
                 <button
                     className="text-white hover:underline"
