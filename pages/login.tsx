@@ -48,6 +48,7 @@ function Login() {
                         type="email"
                         placeholder="Correo electrónico"
                         className="input"
+                        defaultValue="clonetflix@gmail.com"
                         {...register('email', { required: true })} />
                     {errors.email && <p className="p-1 text-[13px] font-light  text-orange-500">Escribe un correo electrónico válido.</p>}
                 </label>
@@ -56,6 +57,7 @@ function Login() {
                         type="password"
                         placeholder="Contraseña"
                         className="input"
+                        defaultValue='clonetflix'
                         {...register('password', { required: true })} />
                     {errors.password &&
                         <p className="p-1 text-[13px] font-light  text-orange-500">
@@ -80,7 +82,7 @@ function Login() {
                     haz click aquí.
                 </button>
                 <p className="p-1 text-[13px] font-light">
-                    O usa: clonetflix@gmail.com - clonetflix.
+                    O usa los valores por defecto :)
                 </p>
             </div>
         </form>
